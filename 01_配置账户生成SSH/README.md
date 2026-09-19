@@ -154,4 +154,31 @@ ssh -T git@github.com
     + SSH方式（推荐）：`git remote add origin git@github.com:用户名/仓库名.git`
     + HTTPS方式：`git remote add origin https@github.com:用户名/仓库名.git`
 3. 把本地分支的提交推送到远程，并设置关联：`git push -u origin main`
+    + `-u`选项：表示建立关联。通常只需要在第一次提交时使用
+    + `main`：本地分支名。很多本地分支名叫`master`，这是就要使用`git push -u origin master`
 
+我们看下实际操作流程：
+
+![](./images/015.png)
+
+现在就可以在github上看到我们推送的内容了，本章结束！
+
+![](./images/016.png)
+
+## 5. （额外的）tortoisegit使用
+
+如果我们使用tortoisegit图形化界面，要设置使用本地安装的git和ssh，否则会出现本地git能提交，tortoisegit不能提交的情况
+
+### 5.1 tortoisegit使用本地git
+
+右键任意文件夹 → TortoiseGit → Settings，找到General → Git.exe Path，选择本地git的路径
+
+![](./images/017.png)
+
+### 5.1 tortoisegit使用本地git的ssh
+
+TortoiseGit 默认可能用自己的 TortoiseGitPlink，而命令行用的是 Git 自带的 ssh.exe，两者密钥可能不一致。建议也让 TortoiseGit 使用 Git 自带的 SSH。
+
+右键任意文件夹 → TortoiseGit → Settings → Network → SSH client，填入`Git安装路径\usr\bin\ssh.exe`
+
+![](./images/018.png)
